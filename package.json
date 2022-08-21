@@ -1,0 +1,25 @@
+{
+  "name": "cypress-workshop",
+  "version": "1.0.0",
+  "description": "Cypress workshop for Women Who Code Guatemala",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anickacercado/cypress-workshop.git"
+  },
+  "keywords": [
+    "Cypress"
+  ],
+  "author": "Anicka Cercado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anickacercado/cypress-workshop/issues"
+  },
+  "homepage": "https://github.com/anickacercado/cypress-workshop#readme",
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}
