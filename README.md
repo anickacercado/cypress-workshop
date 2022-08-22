@@ -1,6 +1,6 @@
 # Cypress Workshop 
 
-# Version
+## Version
 9.7.0
 
 ## Requirements
@@ -14,4 +14,4 @@
 ## ¿How to run?
 npm run cypress:open
 
-Made with Love by Anicka Cercado
+### Made with Love by Anicka Cercado
