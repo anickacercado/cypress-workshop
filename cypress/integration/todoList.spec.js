@@ -12,6 +12,9 @@ describe("TODO list page", () => {
   it("Add two items ", () => {
     cy.get("[data-test=new-todo]").type("Learn JavaScript{enter}");
     cy.get("[data-test=new-todo]").type("Learn Cypress{enter}");
+    //Assertion
+    cy.contains("Learn JavaScript").should("be.visible");
+    cy.contains("Learn Cypress").should("be.visible");
   });
 
   it("Check and item as completed & see completed items ", () => {
@@ -19,8 +22,9 @@ describe("TODO list page", () => {
       .parent()
       .find("input[type=checkbox]")
       .check();
-
     cy.contains("Completed").click();
+    //Assertion
+    cy.contains("Pay electric bill").should("be.visible");
   });
 
   it("Go to Utilities", () => {

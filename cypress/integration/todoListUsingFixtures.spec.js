@@ -14,12 +14,16 @@ describe("TODO list page", () => {
   it("Add two items ", () => {
     cy.get("[data-test=new-todo]").type(`${item1}{enter}`);
     cy.get("[data-test=new-todo]").type(`${item2}{enter}`);
+    //Assertion
+    cy.contains(item1).should("be.visible");
+    cy.contains(item2).should("be.visible");
   });
 
   it("Check and item as completed & see completed items ", () => {
     cy.contains(item3).parent().find("input[type=checkbox]").check();
-    //filter by completed
     cy.contains("Completed").click();
+    //Assertion
+    cy.contains(item3).should("be.visible");
   });
 
   it("Go to Utilities", () => {
