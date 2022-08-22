@@ -1,28 +1,33 @@
 /// <reference types="cypress" />
 
-describe('TODO list page', () => {
+import { item1, item2, item3 } from "../fixtures/todo.json";
 
-    beforeEach(() => {
-        cy.visit('https://example.cypress.io/todo')
-      })
+describe("TODO list page", () => {
+  beforeEach(() => {
+    cy.visit("https://example.cypress.io/todo");
+  });
 
-    it('Add two items ', () => {
-        cy.get('[data-test=new-todo]').type('Learn JavaScript{enter}')
-        cy.get('[data-test=new-todo]').type('Learn Cypress{enter}')
-    });
+  it("Validate URL", () => {
+    cy.url().should("include", "/todo");
+  });
 
-    it('Check and item as completed & see completed items ', () => {
-        cy.contains('Pay electric bill')
-        .parent()
-        .find('input[type=checkbox]')
-        .check()
+  it("Add two items ", () => {
+    cy.get("[data-test=new-todo]").type(`${item1}{enter}`);
+    cy.get("[data-test=new-todo]").type(`${item2}{enter}`);
+  });
 
-        cy.contains('Completed').click()
-    }); 
+  it("Check and item as completed & see completed items ", () => {
+    cy.contains(item3).parent().find("input[type=checkbox]").check();
+    //filter by completed
+    cy.contains("Completed").click();
+  });
 
-    it('Go to Utilities', () => {
-        cy.contains('Utilities').click()
-        cy.url().should('include', '/utilities')
-    }); 
-    
+  it("Go to Utilities", () => {
+    cy.contains("Utilities").click();
+    cy.url().should("include", "/utilities");
+  });
+
+  afterEach(() => {
+    cy.screenshot();
+  });
 });
